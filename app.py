@@ -115,8 +115,7 @@ async def get_answer(request: Request, question: str = Form(...)):
     print(question)
     answer, relevant_documents = get_result(question)
     response_data = jsonable_encoder(json.dumps({"answer": answer, "relevant_documents": relevant_documents}))
-    res = Response(response_data)
-    return res
+    return Response(response_data)
 
 # if __name__ == "__main__":
 #     uvicorn.run("app:app", host='0.0.0.0', port=8001, reload=True)
